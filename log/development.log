@@ -29153,3 +29153,100 @@ Processing by Devise::RegistrationsController#new as HTML
   Rendered layouts/_navigation.html.erb (0.8ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-09 03:28:08 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (11.0ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 LIMIT 1
+  [1m[36mRole Load (0.3ms)[0m  [1mSELECT `roles`.* FROM `roles` [0m
+  [1m[35mSQL (32.3ms)[0m  SELECT `roles`.id FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  Rendered users/_user.html.erb (492.1ms)
+  Rendered users/index.html.erb within layouts/application (720.0ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 1277ms (Views: 1109.2ms | ActiveRecord: 125.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-09 03:28:28 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (32.6ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` [0m
+  [1m[35mSQL (0.1ms)[0m  SELECT `roles`.id FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  Rendered users/_user.html.erb (3.2ms)
+  Rendered users/index.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 28.3ms | ActiveRecord: 39.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-09 03:31:38 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` [0m
+  [1m[35mSQL (0.1ms)[0m  SELECT `roles`.id FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  Rendered users/_user.html.erb (3.0ms)
+  Rendered users/index.html.erb within layouts/application (47.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 85ms (Views: 58.2ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-04-09 03:31:41 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 76ms (Views: 71.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-04-09 03:31:44 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NIbeEWuj0cerpGuwHJYMNlBvID3Dc/YGjM8zVmq+UHo=", "user"=>{"email"=>"b@b.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (175.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'b@b.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (26.6ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2014-04-09 07:31:44', `sign_in_count` = 2, `updated_at` = '2014-04-09 07:31:44' WHERE `users`.`id` = 1[0m
+  [1m[35m (339.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/users
+Completed 302 Found in 816ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-04-09 03:31:45 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` [0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `roles`.id FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  Rendered users/_user.html.erb (3.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 27ms (Views: 24.3ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2014-04-09 03:31:53 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FOogffdSoAS2ghw6UL5BtyJ52nCb7ACPMeBRVYgDhhk="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 39ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-04-09 03:31:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` [0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1 LIMIT 1
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` [0m
+  [1m[35mSQL (0.1ms)[0m  SELECT `roles`.id FROM `roles` INNER JOIN `users_roles` ON `roles`.`id` = `users_roles`.`role_id` WHERE `users_roles`.`user_id` = 1
+  Rendered users/_user.html.erb (3.9ms)
+  Rendered users/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_navigation.html.erb (0.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.8ms)
