@@ -36776,3 +36776,22 @@ Processing by UsersController#show_members as HTML
   Rendered layouts/_navigation.html.erb (0.7ms)
   Rendered layouts/_messages.html.erb (0.0ms)
 Completed 200 OK in 17ms (Views: 16.7ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+  [1m[36mUser Load (21.9ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+Migrating to DeviseCreateUsers (20120418171104)
+Migrating to RolifyCreateRoles (20120418171110)
+Migrating to AddNameToUsers (20120418171112)
+Migrating to DeviseCreateAdminUsers (20130826145027)
+Migrating to CreateAdminNotes (20130826145031)
+Migrating to MoveAdminNotesToComments (20130826145032)
+Migrating to AddUsertypeToUsers (20130826152519)
+Migrating to CreateApisettings (20130827062141)
+Migrating to AddColumnToApisettings (20130827062320)
+Migrating to CreateUploadCsvs (20130827120841)
+Migrating to AddColumnsToUlpoadCsv (20130827120940)
+Migrating to CreateCsvs (20130827125410)
+Migrating to AddFieldsToUploadcsvs (20130827132955)
+Migrating to CreateNouses (20140409102550)
+  [1m[35m (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
