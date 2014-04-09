@@ -1,0 +1,29 @@
+
+  <h1 class = "text-center">Edit User</h1>
+  <%= form_for @user , :html => { :multipart => :true, :method => 'put' }  do |f| %>
+    <div class = "text-center">
+      <div class="input-lg">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class = "text-center">
+      <div  data-style="btn-inverse" id = "type" >
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class = "text-center">
+      <div  data-style="btn-inverse" id = "status">
+        <%= f.label :user_type %>
+        <%= f.select :user_type, options_for_select(%w[Supplier Member], :html_options => {:class => "some-class"}  ) %>
+      </div>
+    </div>
+    	<div class = "text-center">
+      <div class="btn btn-default btn-lg" name "comit"><%= f.submit 'Edit User', :class => 'btn btn-danger' %></div>
+  </div>
+  <% end %>
+  <div class="field" id = "sttatus">
+  </div>
+
+   

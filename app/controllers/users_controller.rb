@@ -5,15 +5,25 @@ class UsersController < ApplicationController
     #authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
   end
+  
+  def show_members
+    #authorize! :index, @user, :message => 'Not authorized as an administrator.'
+    @users = User.where(:user_type => 'Member')
+  end
 
+  def show_suppliers
+    #authorize! :indsex, @user, :message => 'Not authorized as an administrator.'
+    @users = User.where(:user_type => 'Supplier')
+  end
+  
   def show
     @user = User.find(params[:id])
   end
   
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+   # authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], :as => :admin)
+    if @user.update_attributes(params[:user])
       redirect_to users_path, :notice => "User updated."
     else
       redirect_to users_path, :alert => "Unable to update user."
@@ -21,13 +31,19 @@ class UsersController < ApplicationController
   end
     
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
+    
     user = User.find(params[:id])
-    unless user == current_user
+    if user_signed_in? && current_user.user_type=="admin"
       user.destroy
       redirect_to users_path, :notice => "User deleted."
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to users_path, :notice => "Not authorized as an administrator."
     end
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  
 end
